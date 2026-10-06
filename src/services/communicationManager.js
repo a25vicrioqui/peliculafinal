@@ -1,7 +1,5 @@
 export async function buscarPeliculas(titulo) {
-
   const url = `https://www.omdbapi.com/?i=tt3896198&apikey=3e179885&s=${encodeURIComponent(titulo)}`
-
   const response = await fetch(url)
   const data = await response.json()
 
@@ -10,4 +8,17 @@ export async function buscarPeliculas(titulo) {
   }
 
   return data.Search
+}
+
+
+export async function buscarDetallesPelicula(imdbID) {
+  const url = `https://www.omdbapi.com/?i=${imdbID}&apikey=3e179885`
+  const response = await fetch(url)
+  const data = await response.json()
+
+  if (data.Response === 'False') {
+    throw new Error(data.Error)
+  }
+
+  return data
 }
