@@ -267,6 +267,8 @@ interface Pelicula {
   Poster: string
 }
 
+//Esto sirve para que PeliculesDesign sepa que datos voy a recibir desde Pelicules y de que tipo son
+
 defineProps<{
   buscar: string
   pelis: Pelicula[]
@@ -276,6 +278,7 @@ defineProps<{
   cargandoDetalles: boolean
 }>()
 
+//Este es lo mismo pero al reves
 defineEmits<{
   (e: 'actualitzar-buscar', valor: string): void
   (e: 'buscar-pelis'): void
